@@ -46,7 +46,7 @@ class ActivityDetailsCard extends StatelessWidget {
       const Padding(padding: EdgeInsets.all(8)),
       SizedBox(
           width: MediaQuery.sizeOf(context).width * 0.31,
-          height: MediaQuery.sizeOf(context).width * 0.29,
+          height: MediaQuery.sizeOf(context).width * 0.30,
           child: const Column(
             children: [
               Center(

@@ -119,14 +119,14 @@ class HomePage extends StatelessWidget {
                       ),
                       SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.31,
-                          height: MediaQuery.sizeOf(context).height * 0.6,
+                          height: MediaQuery.sizeOf(context).height * 0.55,
                           child: const PieChartSample2()),
                     ],
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
-                        width: MediaQuery.sizeOf(context).width * 0.65,
+                        width: MediaQuery.sizeOf(context).width * 0.63,
                         child: LineChartCard(
                           title: 'Average Horsepower and Tonnage:',
                         )),
