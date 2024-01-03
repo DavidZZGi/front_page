@@ -1,64 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:garduino_dashboard/Responsive.dart';
-import 'package:garduino_dashboard/model/health_model.dart';
-import 'package:garduino_dashboard/widgets/custom_card.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:garduino_dashboard/pages/home/widgets/avg_graph.dart';
+import 'package:garduino_dashboard/pages/home/widgets/animated_bar_graph.dart';
+import 'package:garduino_dashboard/pages/home/widgets/profits_graph.dart';
 
 class ActivityDetailsCard extends StatelessWidget {
   const ActivityDetailsCard({super.key});
 
-  final List<HealthModel> healthDetails = const [
-    HealthModel(
-        icon: 'assets/svg/thermometer.svg',
-        value: "32.6°C",
-        title: "Temperature"),
-    HealthModel(icon: 'assets/svg/wind.svg', value: "84%", title: "Humidity"),
-    HealthModel(
-        icon: 'assets/svg/soil.svg',
-        value: "238.3",
-        title: "Soil Moisture Level"),
-    HealthModel(
-        icon: 'assets/svg/sun.svg', value: "176.7", title: "Irradiance"),
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: healthDetails.length,
-      shrinkWrap: true,
-      physics: const ScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: Responsive.isMobile(context) ? 2 : 4,
-          crossAxisSpacing: !Responsive.isMobile(context) ? 15 : 12,
-          mainAxisSpacing: 12.0),
-      itemBuilder: (context, i) {
-        return CustomCard(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+    return Row(children: [
+      SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.32,
+          height: MediaQuery.sizeOf(context).height * 0.6,
+          child: const Column(
             children: [
-              SvgPicture.asset(healthDetails[i].icon),
-              Padding(
-                padding: const EdgeInsets.only(top: 15, bottom: 4),
+              Center(
                 child: Text(
-                  healthDetails[i].value,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
+                  'Average Job Size Graph',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
-              Text(
-                healthDetails[i].title,
-                style: const TextStyle(
-                    fontSize: 13,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.normal),
+              SizedBox(
+                height: 8,
               ),
+              Expanded(child: AvgGraph()),
             ],
-          ),
-        );
-      },
-    );
+          )),
+      const Padding(padding: EdgeInsets.all(8)),
+      SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.3,
+          child: Column(
+            children: [
+              const Center(
+                child: Text(
+                  'Weekly Jobs Completion Rate',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              BarChartSample2(),
+            ],
+          )),
+      const Padding(padding: EdgeInsets.all(8)),
+      SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.31,
+          height: MediaQuery.sizeOf(context).width * 0.29,
+          child: const Column(
+            children: [
+              Center(
+                child: Text(
+                  'Last Quarter Profit Behavior',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              LineChartSample1(),
+            ],
+          )),
+    ]);
   }
 }

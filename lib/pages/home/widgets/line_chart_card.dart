@@ -4,8 +4,8 @@ import 'package:garduino_dashboard/responsive.dart';
 import 'package:garduino_dashboard/widgets/custom_card.dart';
 
 class LineChartCard extends StatelessWidget {
-  LineChartCard({super.key});
-
+  LineChartCard({super.key, required this.title});
+  final String title;
   final List<FlSpot> spots = const [
     FlSpot(1.68, 21.04),
     FlSpot(2.84, 26.23),
@@ -53,12 +53,12 @@ class LineChartCard extends StatelessWidget {
   ];
 
   final leftTitle = {
-    0: '34.0°C',
-    20: '34.5°C',
-    40: '35.2°C',
-    60: '36.5°C',
-    80: '37°C',
-    100: '39.3°C'
+    0: '10',
+    20: '20',
+    40: '30',
+    60: '40',
+    80: '50',
+    100: '60'
   };
   final bottomTitle = {
     0: 'Jan',
@@ -81,9 +81,10 @@ class LineChartCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Garden Temperature Overview",
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          Text(
+            title,
+            style: const TextStyle(
+                fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           const SizedBox(
             height: 20,

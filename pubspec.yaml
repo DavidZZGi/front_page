@@ -1,14 +1,12 @@
 name: garduino_dashboard
 description: A new Flutter project.
 
-publish_to: 'none' 
-
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.5 <3.0.0'
-
+  sdk: ">=2.19.5 <3.0.0"
 
 dependencies:
   flutter:
@@ -18,8 +16,8 @@ dependencies:
   flutter_svg: ^2.0.5
   fl_chart: ^0.62.0
   connectivity: ^3.0.6
-  wifi: ^0.1.5
   wifi_info_flutter: ^2.0.2
+  curved_navigation_bar: ^1.0.3
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
@@ -44,7 +42,6 @@ flutter_launcher_icons:
     generate: true
     image_path: "assets/icon/icon.png"
 flutter:
-
   uses-material-design: true
 
   assets:
@@ -71,5 +68,4 @@ flutter:
         - asset: assets/fonts/IBMPlexSans-ExtraLight.ttf
           weight: 200
         - asset: assets/fonts/IBMPlexSans-Thin.ttf
-          weight: 100  
-  
+          weight: 100

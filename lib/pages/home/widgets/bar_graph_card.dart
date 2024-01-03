@@ -10,7 +10,7 @@ class BarGraphCard extends StatelessWidget {
 
   final List<BarGraphModel> data = [
     BarGraphModel(
-        lable: "Water Level (Day)",
+        lable: "Average Job Duration",
         color: const Color.fromARGB(248, 43, 87, 245),
         graph: [
           GraphModel(x: 0, y: 8),
@@ -21,7 +21,7 @@ class BarGraphCard extends StatelessWidget {
           GraphModel(x: 5, y: 6),
         ]),
     BarGraphModel(
-        lable: "Soil Nutrition (Day)",
+        lable: "Jobs Completed On Time",
         color: const Color.fromARGB(255, 241, 179, 117),
         graph: [
           GraphModel(x: 0, y: 8),
@@ -32,7 +32,7 @@ class BarGraphCard extends StatelessWidget {
           GraphModel(x: 5, y: 5),
         ]),
     BarGraphModel(
-        lable: "Plants Hydration Level (Day)",
+        lable: "Jobs by Size Category",
         color: const Color(0xFF20AEF3),
         graph: [
           GraphModel(x: 0, y: 7),
@@ -45,7 +45,7 @@ class BarGraphCard extends StatelessWidget {
   ];
 
   final lable = ['M', 'T', 'W', 'T', 'F', 'S'];
-
+  final nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -68,7 +68,9 @@ class BarGraphCard extends StatelessWidget {
                   child: Text(
                     data[i].lable,
                     style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w500),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
                 ),
                 const SizedBox(
@@ -92,14 +94,28 @@ class BarGraphCard extends StatelessWidget {
                                 lable[value.toInt()],
                                 style: const TextStyle(
                                     fontSize: 11,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w500),
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                               ),
                             );
                           },
                         )),
                         leftTitles: AxisTitles(
-                            sideTitles: SideTitles(showTitles: false)),
+                            sideTitles: SideTitles(
+                          showTitles: true,
+                          getTitlesWidget: (value, meta) {
+                            return Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Text(
+                                nums[value.toInt()].toString(),
+                                style: const TextStyle(
+                                    fontSize: 11,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            );
+                          },
+                        )),
                         topTitles: AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
                         rightTitles: AxisTitles(

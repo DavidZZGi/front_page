@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Garduino',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: ThemeData(
           primaryColor: MaterialColor(
             primaryColorCode,
@@ -33,10 +33,8 @@ class MyApp extends StatelessWidget {
           ),
           scaffoldBackgroundColor: const Color(0xFF171821),
           fontFamily: 'IBMPlexSans',
-          brightness: Brightness.dark),
+          brightness: Brightness.light),
       home: DashBoard(),
     );
   }
 }
-//add connection page in this code
-//add UI in different page..
